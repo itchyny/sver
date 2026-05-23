@@ -195,7 +195,11 @@ impl SverRepository {
                 }
             }
         }
-        let hash = format!("{:#x}", hasher.finalize());
+        let hash = hasher
+            .finalize()
+            .iter()
+            .map(|b| format!("{:02x}", b))
+            .collect::<String>();
         Ok(hash)
     }
 
