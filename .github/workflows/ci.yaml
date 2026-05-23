@@ -26,15 +26,15 @@ jobs:
     runs-on: ${{ matrix.job.runs-on }}
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
-      - uses: mitoma/sver-actions/setup@v2
+      - uses: mitoma/sver-actions/setup@447f10ca23a2b4026ded7c4edf24a456589a64cd # v2
         with:
           os: ${{ matrix.job.os }}
 
       # ci phase
       - name: check all
-        uses: mitoma/sver-actions/exec@v2
+        uses: mitoma/sver-actions/exec@447f10ca23a2b4026ded7c4edf24a456589a64cd # v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           phase: check-${{ matrix.job.target }}
@@ -81,15 +81,15 @@ jobs:
     runs-on: ${{ matrix.job.runs-on }}
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
-      - uses: mitoma/sver-actions/setup@v2
+      - uses: mitoma/sver-actions/setup@447f10ca23a2b4026ded7c4edf24a456589a64cd # v2
         with:
           os: ${{ matrix.job.os }}
 
       # artifact phase
       - name: build artifact
-        uses: mitoma/sver-actions/exec@v2
+        uses: mitoma/sver-actions/exec@447f10ca23a2b4026ded7c4edf24a456589a64cd # v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           phase: artifact-${{ matrix.job.target }}
@@ -129,9 +129,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
-      - uses: mitoma/sver-actions/setup@v2
+      - uses: mitoma/sver-actions/setup@447f10ca23a2b4026ded7c4edf24a456589a64cd # v2
 
       - id: extract_tag
         name: Extract tag name
