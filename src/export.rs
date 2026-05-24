@@ -35,8 +35,8 @@ pub fn export(path: &str, export_dir: PathBuf) -> Result<(), anyhow::Error> {
             .map_err(|e| anyhow!("Failed to clone repository. err[{}]", e))?;
         let mut submodules = exported_repo.submodules()?;
         for submodule in submodules.iter_mut() {
-            if let Some(submodule_path) = submodule.name() {
-                debug!("submodule name: {:?}", submodule.name());
+            if let Ok(submodule_path) = submodule.name() {
+                debug!("submodule name: {:?}", submodule_path);
                 // If it is included in sources, clone the submodule
                 if sources.contains(&submodule_path.to_string()) {
                     debug!("submodule update: {:?}", submodule_path);
